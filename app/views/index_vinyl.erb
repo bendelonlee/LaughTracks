@@ -9,7 +9,7 @@
     </ol>
     <div class="carousel-inner">
       <% @comedians.each_with_index do |comedian, i| %>
-      <div class="carousel-item <%= "active" if i == 0 %>">
+      <div class="carousel-item <%= "active" if i == 0 %>" id="<%= comedian.name.downcase.gsub(' ','-') %>-container">
         <img class="slide-background" src="images/vinyl.jpeg">
 
         <div class="container">
@@ -22,7 +22,7 @@
             <p>City: <%= comedian.city %>></p>
           </div>
           <<div class="carousel-caption text-right">
-            <h3>Specials</h3>
+            <h3><%= comedian.specials.size %> Specials</h3>
             <% comedian.specials.each do |special| %>
               <p><%= special.title %></p>
               <img src="<%= special.image_path %>" alt="special image" width="100px" height="100px">

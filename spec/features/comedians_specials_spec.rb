@@ -27,4 +27,27 @@ RSpec.describe "specials are displayed on comedian index" do
     expect(page).to have_css("img[src*='#{special_4.image_path}']")
 
   end
+
+  it "displays the number of specials a comedian has on comedian page" do
+    comedian_1 = Comedian.create!(firstname: "Bob", lastname: "Mcgee", age:40, city:"New York")
+    comedian_2 = Comedian.create!(firstname: "Rob", lastname: "Mcgoo", age:42, city:"New York")
+
+    special_1 = Special.create!(title: "The Best Special", runtime: 100, image_path: "images/generic_special.jpeg")
+    special_2 = Special.create!(title: "The Funny Special", runtime: 100, image_path: "images/generic_special.jpeg")
+    comedian_1.specials << special_1
+    comedian_1.specials << special_2
+
+    special_3 = Special.create!(title: "Hot Dog!", runtime: 100, image_path: "images/generic_special.jpeg")
+    comedian_2.specials << special_3
+
+    visit '/comedians'
+
+    within 'div#bob-mcgee-container' do
+      expect(page).to have_content("2 Specials")
+    end
+    within 'div#rob-mcgoo-container' do
+      expect(page).to have_content("1 Specials")
+    end
+
+  end
 end

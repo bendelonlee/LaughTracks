@@ -4,4 +4,17 @@ class Special < ActiveRecord::Base
   def self.average_runtime
     average(:runtime)
   end
+  def self.fetch_data(params)
+    result = {}
+    if params[:age]
+      comedians = Comedian.where(age: params[:age])
+      specials = Special.where(comedian_id: comedians.pluck(:id))
+      result[:average_runtime] = specials.map(&:runtime).sum / specials.size
+      result[:total_specials] = specials.size
+    else
+      result[:average_runtime] = Special.average_runtime
+      result[:total_specials] = Special.all.size
+    end
+    result
+  end
 end
