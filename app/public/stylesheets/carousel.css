@@ -7,6 +7,8 @@ body {
 
 
 
+
+
 img {
   object-fit: cover;
 }
@@ -19,8 +21,34 @@ img {
   height: 10000px;
 } */
 
-.custom-main {
-  margin-top: 80px;
+
+.stats-bar {
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: grey;
+  border-bottom: solid;
+  border-color: white;
+  color: #DDD;
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.stat-type {
+  color: white;
+  font-weight: bold;
+}
+
+.stats-bar p {
+  margin:auto;
+
+}
+.stats-bar h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin:auto;
+  color:white;
+  font-variant: small-caps;
 }
 
 
@@ -46,6 +74,8 @@ img {
   min-width: 100%;
   height: 32rem;
 }
+
+
 
 
 /* MARKETING CONTENT
@@ -79,15 +109,6 @@ img {
   letter-spacing: -.05rem;
 }
 
-.carousel-center {
-
-}
-
-.slide-background {
-  /* width:1000px;
-  object-fit: cover; */
-}
-
 .vinyl-center {
   width:250px;
   height:250px;
@@ -105,7 +126,7 @@ img {
   /* Bump up size of carousel content */
   .carousel-caption p {
     margin-bottom: 1.25rem;
-    font-size: 1.25rem;
+    font-size: 0.8rem;
     line-height: 1.4;
   }
 
