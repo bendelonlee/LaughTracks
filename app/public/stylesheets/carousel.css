@@ -17,10 +17,23 @@ img {
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-/* .spacing {
-  height: 10000px;
-} */
+.header-form {
+  height: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  color: #EEE;
+}
 
+.header-form span{
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+.submit-button {
+  height: 24px;
+  margin-left: 30px;
+}
 
 .stats-bar {
   margin-top: 10px;

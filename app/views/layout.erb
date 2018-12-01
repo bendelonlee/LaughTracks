@@ -1,47 +1,60 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/carousel.css">
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Laugh Tracks</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/carousel.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Laugh Tracks</a>
+      <form class="header-form" action="/comedians" method="get">
+        <span>Age: </span>
+        <select name="age">
+          <option value="any">any</option>
+          <% if @all_comedian_ages %>
+            <% @all_comedian_ages.each do |age| %>
+            <option value="<%= age %>"><%= age %></option>
+            <% end %>
+          <% end %>
+        </select>
+        <span>Sort by: </span>
+          <input type="radio" name="sort" value="age" checked> age &nbsp;
+          <input type="radio" name="sort" value="city"> city &nbsp;
+          <input type="radio" name="sort" value="name"> name &nbsp;
 
-      </nav>
-    </header>
-    <main class="custom-main">
+        <input class = "submit-button" type="submit" value="Submit">
+      </form>
+    </nav>
+  </header>
+  <main class="custom-main">
 
     <%= yield %>
 
 
 
 
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-
-      <!-- FOOTER -->
-      <footer class="container">
-        <p>&copy; 2017-2018 The Best Medicine, Inc. &middot;</p>
-      </footer>
-    </main>
-
-    <!-- Bootstrap core JavaScript
+    <!-- Marketing messaging and featurettes
     ================================================== -->
-    <script src="/scripts/slim.js"></script>
-    <script src="/scripts/popper.js"></script>
-    <script src="/scripts/bootstrap.js"></script>
-  </body>
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p>&copy; 2017-2018 The Best Medicine, Inc. &middot;</p>
+    </footer>
+  </main>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <script src="/scripts/slim.js"></script>
+  <script src="/scripts/popper.js"></script>
+  <script src="/scripts/bootstrap.js"></script>
+</body>
 </html>

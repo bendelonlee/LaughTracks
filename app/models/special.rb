@@ -6,10 +6,10 @@ class Special < ActiveRecord::Base
   end
   def self.fetch_data(params)
     result = {}
-    if params[:age]
+    if params[:age] && params[:age] != "any"
       comedians = Comedian.where(age: params[:age])
       specials = Special.where(comedian_id: comedians.pluck(:id))
-      result[:average_runtime] = specials.map(&:runtime).sum / specials.size
+      result[:average_runtime] = specials.empty? ? "N/A" : specials.map(&:runtime).sum / specials.size
       result[:total_specials] = specials.size
     else
       result[:average_runtime] = Special.average_runtime
