@@ -10,6 +10,7 @@ class LaughTracksApp < Sinatra::Base
     @average_age = comedian_payload[:average_age]
     @average_runtime = special_payload[:average_runtime]
     @total_specials = special_payload[:total_specials]
+    @all_comedian_ages = Comedian.pluck(:age)
     erb :index_vinyl
   end
 
@@ -17,15 +18,9 @@ class LaughTracksApp < Sinatra::Base
     erb :new
   end
 
-  post '/comedians' do
+  post '/comedians' do #Would /create_comedian  or non-plural /comedian be okay, or is it not RESTful/against convention?
     Comedian.create(params[:comedian])
     redirect '/comedians'
   end
-
-  # get '/'
-
-
-  private
-
 
 end

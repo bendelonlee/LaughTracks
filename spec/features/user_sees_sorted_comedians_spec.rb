@@ -8,7 +8,10 @@ RSpec.describe 'user sees sorted comedians' do
   end
 
   it "displays comedian's sorted by age" do
-    visit "/comedians?sort=age"
+    visit "/comedians"
+    find('input[value="age"]', visible: false).click
+    click_on "Submit"
+
     comic_1_position = page.body =~ /Meg/
     comic_2_position = page.body =~ /Rob/
     comic_3_position = page.body =~ /Greg/
@@ -19,7 +22,9 @@ RSpec.describe 'user sees sorted comedians' do
   end
 
   it "displays comedian's sorted by name" do
-    visit "/comedians?sort=name"
+    visit "/comedians"
+    find('input[value="name"]', visible: false).click
+    click_on "Submit"
     comic_1_position = page.body =~ /Bob/
     comic_2_position = page.body =~ /Greg/
     comic_3_position = page.body =~ /Meg/
@@ -30,7 +35,9 @@ RSpec.describe 'user sees sorted comedians' do
   end
 
   it "displays comedian's sorted by city" do
-    visit "/comedians?sort=city"
+    visit "/comedians"
+    find('input[value="city"]', visible: false).click
+    click_on "Submit"
     comic_1_position = page.body =~ /Greg/
     comic_2_position = page.body =~ /Meg/
     comic_3_position = page.body =~ /Bob/

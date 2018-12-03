@@ -5,7 +5,7 @@ class Comedian < ActiveRecord::Base
 
   def self.fetch_data(params)
     result = {}
-    if params[:age]
+    if params[:age] && params[:age] != "any"
       comedians = Comedian.where(age: params[:age])
       result[:comedians] = comedians
       result[:cities] = comedians.distinct.pluck(:city)
@@ -18,11 +18,11 @@ class Comedian < ActiveRecord::Base
 
     case params[:sort]
     when "age"
-      result[:comedians] = Comedian.order(age: :asc)
+      result[:comedians] = result[:comedians].order(age: :asc)
     when "name"
-      result[:comedians] = Comedian.order(firstname: :asc)
+      result[:comedians] = result[:comedians].order(firstname: :asc)
     when "city"
-      result[:comedians] = Comedian.order(city: :asc)
+      result[:comedians] = result[:comedians].order(city: :asc)
     end
     result
   end

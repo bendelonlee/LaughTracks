@@ -1,64 +1,60 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/styleheets/carousel.css">
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Laugh Tracks</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-    </header>
-    <main class="custom-main">
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/carousel.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Laugh Tracks</a>
+      <form class="header-form" action="/comedians" method="get">
+        <span>Age: </span>
+        <select name="age">
+          <option value="any">any</option>
+          <% if @all_comedian_ages %>
+            <% @all_comedian_ages.each do |age| %>
+            <option value="<%= age %>"><%= age %></option>
+            <% end %>
+          <% end %>
+        </select>
+        <span>Sort by: </span>
+          <input type="radio" name="sort" value="age" checked> age &nbsp;
+          <input type="radio" name="sort" value="city"> city &nbsp;
+          <input type="radio" name="sort" value="name"> name &nbsp;
+
+        <input class = "submit-button" type="submit" value="Submit">
+      </form>
+    </nav>
+  </header>
+  <main class="custom-main">
 
     <%= yield %>
 
 
 
 
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-
-      <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2017-2018 The Best Medicine, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-    </main>
-
-    <!-- Bootstrap core JavaScript
+    <!-- Marketing messaging and featurettes
     ================================================== -->
-    <script src="/scripts/slim.js"></script>
-    <script src="/scripts/popper.js"></script>
-    <script src="/scripts/bootstrap.js"></script>
-  </body>
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p>&copy; 2017-2018 The Best Medicine, Inc. &middot;</p>
+    </footer>
+  </main>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <script src="/scripts/slim.js"></script>
+  <script src="/scripts/popper.js"></script>
+  <script src="/scripts/bootstrap.js"></script>
+</body>
 </html>

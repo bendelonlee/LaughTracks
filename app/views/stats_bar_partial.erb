@@ -1,7 +1,7 @@
-<div class="stats bar">
+<div class="stats-bar">
   <h3>Statistics</h3>
-  <p>Cities: <%= @cities.join(", ") %></p>
-  <p>Average Age: <%= @average_age.to_i %></p>
-  <p>Total Specials: <%= @total_specials %></p>
-  <p>Average Runtime of Specials: <%= @average_runtime.to_i %> minutes</p>
+  <p><span class="stat-type">Cities:</span> <%= @cities.join(", ") %></p>
+  <p><span class="stat-type">Average Age:</span> <%= @average_age.to_i %></p>
+  <p><span class="stat-type">Total Specials:</span> <%= @total_specials %></p>
+  <p><span class="stat-type">Average Runtime of Specials:</span> <%= @average_runtime.to_i %> minutes</p>
 </div>
