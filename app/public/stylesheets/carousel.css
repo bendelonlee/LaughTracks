@@ -65,6 +65,16 @@ img {
 }
 
 
+.vinyl-center {
+  width:250px;
+  height:250px;
+  position: absolute;
+  top:25%;
+  left:35%;
+  z-index: 100;
+}
+
+
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
@@ -122,14 +132,7 @@ img {
   letter-spacing: -.05rem;
 }
 
-.vinyl-center {
-  width:250px;
-  height:250px;
-  position: absolute;
-  top:25%;
-  left:35%;
-  z-index: 100;
-}
+
 
 
 /* RESPONSIVE CSS
